@@ -1,0 +1,268 @@
+keyboard:
+  title: Keyboard buttons
+  ok: Confirm your order ✅
+  back: Back ↩️
+  checkout: Checkout
+  clear: Clear the Cart
+  cancel: Cancel
+  asap: ASAP
+  location: Send Geolocation
+  no_additions: No Additions
+  telegram: Telegram
+  phone: Local Phone
+  whatsapp: Whatsapp
+  thanks: New Order
+  review: Send review
+  cart: "Cart \U0001F6D2"
+  go: "Remove order \U0001F3C3‍♂️"
+  home: "Home \U0001F3E0"
+  rest: "Proceed order \U0001F35F"
+  en: "\U0001F1EC\U0001F1E7 English"
+  ru: "\U0001F1F7\U0001F1FA Русский"
+  ka: "\U0001F1EC\U0001F1EA Georgian"
+  yes_repeat: 'Yes'
+  no_again: 'No, I want to enter new data'
+  orders: My orders
+  chat: Leave message
+  no_minimal: "\U0001F6AB Minimum sum isn't reached"
+  settings: ⚙️
+  pickup: Pickup
+  delivery: Delivery
+meta:
+  title: Common messages
+  help: Help Message
+  anymessage: Unknown command. Please press /start
+  open_in: |
+
+    <b>This restaurant will be open in ${distance}</b>
+city:
+  welcome_message: 'Choose the city where you are living now:'
+chat:
+  title: Chat
+  welcome: |
+    To start or continue dialogue, just write a message below ⬇️
+    ${text}
+  message_notification: |-
+    You've got a message from <b>${fromName}</b>:
+    <code>${text}</code>
+    To answer press this link: ${chatLink}
+  message_notification_in_chat: |-
+    You've got a message from <b>${fromName}</b>:
+    <code>${text}</code>
+    To answer write a message below ⬇️
+top:
+  title: Top dishes
+  welcome_message: Top ten most-ordered dishes
+  select_one: Select one of top dishes
+  button: ❤️ Top dishes
+cuisine:
+  title: Cuisine
+  welcome_message: 'Here you can find the best local restaurants in each category:'
+  select_one: 'Choose a cuisine:'
+  not_found: 'This cuisine was not found. Please choose one of the following:'
+  open_now: Open now
+rest:
+  title: Restaraunts
+  welcome_message: 'Choose the restaurant:'
+  cart_is_not_empty: >-
+    There is already an order in your cart. Press ${cart_button} to proceed to
+    checkout or press ${start_button} to remove order
+  select_one: |-
+    Selected cuisine: <b>${cuisine.name}</b>
+
+    Choose the restaurant:
+  not_found: 'This restaurant was not found. Please choose one of the following:'
+  open_now: Open now
+dish_cat:
+  title: Dish categories
+  welcome_message: 'Choose the dish category:'
+  select_one: |-
+    <b>${restaurant.name}</b>
+    ${restaurant.description}
+    Minimal order: <b>${restaurant.minOrderSum} ${currency}</b> 
+    Delivery cost: from <b>${deliveryCost} ${currency}</b> 
+    Working hours: <b>${restaurant.schedule}</b> 
+    ${openIn}
+    Choose the dish category:
+  not_found: 'This dish category was not found. Please choose one of the following:'
+  no_cats: >-
+    Unfortunately, there is nothing suitable in this restaurant. Try to start
+    over:
+dish:
+  title: Dishes
+  select_one: |-
+    <b>${restaurant.name}</b>
+    Minimal order: <b>${restaurant.minOrderSum} ${currency}</b> 
+    Delivery cost: from <b>${deliveryCost} ${currency}</b> 
+    Working hours: <b>${restaurant.schedule}</b> 
+
+    Choose the dish:
+  not_found: 'This dish was not found. Please choose one of the following:'
+  no_dishes: >-
+    Unfortunately, there is nothing suitable in this dish category. Try to start
+    over:
+  info: |-
+    Restaurant: <b>${restaurant.name}</b>
+
+    ${dish.name}
+
+    Description: ${dish.description}
+
+    Price: ${dish.price}
+  order: 'Add to cart (${count})'
+  plus_one_message: |-
+    You added this dish to the cart ${dish.name}.
+    <pre>
+    ${check}
+    </pre>
+    Total: ${sum} ${currency}
+cart:
+  title: Cart
+  ready_to_checkout: >-
+    You can add one more by pressing "Add to cart" button below or choose
+    another dish by pressing ${back_button} from the menu on the bottom. If you
+    are ready to checkout press ${cart_button}.
+  not_ready_to_checkout: >-
+    To place a free-delivery order you need to add more dishes for at least
+    ${diff} ${currency} extra. You can add one more by pressing "Add to cart"
+    button below or choose another dish by pressing ${back_button} from the menu
+    on the bottom.
+  welcome_message: 'Please check your cart:'
+  dish: >-
+    ${index}. ${dish.name} (${dishCat.name})
+
+    ${dish.price} ${currency} x ${count} = ${total}
+    ${currency} 
+  check: |-
+    Your order:
+
+    <code>${check}</code>
+
+    Subtotal: <b>${sum} ${currency}</b>
+    Delivery cost: <b>${deliveryCost} ${currency}</b>
+
+    Press ${button} to continue or ❌ to remove one of the dishes 
+  review: Going back from cart.
+  empty: "Your cart is empty. Please press \"Home \U0001F3E0\" button to make an order"
+  remove: '❌ ${dish.name} (${count})'
+  already_has: >-
+    Your already have an order in your cart. You can continue with the same
+    restaurant or start a new order
+  final_confirmation: >-
+    Press <b>${confirm}</b> to proceed to checkout or press <b>${cancel}</b> to
+    start a new order
+  cart_sum_invalid: >-
+    The amount of goods in the cart must be greater than the minimum. Please
+    order at least ${diff} ${currency} more. Press /start to continue
+  cart_sum_alert: Add more dishes!
+checkout:
+  title: Checkout
+  select_time: Delivery time
+  pickup: 'Выберите тип доставки:'
+  send_geo: Send your location or shipping address
+  send_additional_address: >-
+    Additional information about your address if you have (hotel name, number of
+    your house, etc)
+  send_name: Please send you name
+  contact_line: How to contact you to confirm the order
+  contact_info: Enter your phone number
+  whatsapp_error: >-
+    Enter your WhatsApp number in international format with plus in front of
+    number  
+  phone_error: Please enter your phone number
+  repeat_text: Should I use the delivery data that was with the previous order?
+  region_error: Select delivery area
+  send_region: Select delivery area
+  location_error: Send your location or shipping address
+final:
+  title: Final messages
+  dish: >-
+    ${index}. ${dish.name} / ${dish.name_en} (${dishCat.name} /
+    ${dishCat.name_en})
+
+    ${dish.price} ${currency} x ${count} = ${total}
+    ${currency} 
+  empty: 'Sorry, it''s empty'
+  check: >-
+    We got your order #${orderId}.
+
+    The restaurant will contact you shortly to confirm it. 
+
+
+    <code>${check}</code>
+
+    Delivery: ${deliveryCost}
+
+    Total payable: <b>${sum} ${currency}</b>
+
+
+    Thank you for choosing our service! You can discuss this app and ${cityname}
+    restaurants in our chat room ${chat}
+  check_rest: |-
+    ${restaurant.name}
+    New order: #${orderId}. ❗️❗️❗️❗️❗️❗️❗️❗️
+    Please connect with customer in 10 min. 
+
+    Order:
+    <code>${check}</code>
+    Delivery cost: from ${deliveryCost} ${currency}
+    Total payable: ${sum} ${currency}
+  user_info: >-
+    Delivery type: <b>${deliverySetup}</b>
+
+
+    Customer: ${user.name}
+
+    Delivery time: ${user.deliveryTime}
+
+    Address by Google: ${user.address}
+
+    Additional information about address: ${cityName}, ${regionName},
+    ${user.additionalAddress} 
+
+    How to contact: ${contact}
+
+    To start chat inside this bot press this link: ${chatLink}
+  rest_address: |-
+    Restaurant address: ${address}
+    Google maps link (if present): ${link}
+  rest_is_closed: 'Sorry, but restaurant is closed right now. Please, check back later.'
+review:
+  title: Reviews
+  welcome: >-
+    Please select the number of stars (1-5) you want to rate ${restaurant.name}
+    restaurant or press /exit 
+  welcome_again: >-
+    Before write anything, please rate ${restaurant.name}. Or press /exit to
+    leave it.
+  rated: |-
+    Thanks for your rate! You can write a review below ⬇️ or press /exit
+    Your review will be posted in ${chat} chat room. 
+  review: |-
+    We got new review for restaurant: <b>${restaurant.name}</b>.
+    Rated: <b>${rating}</b>
+    Review text:
+    <code>${text}</code>
+  review_with_user: |-
+    Отзыв о ресторане <b>${restaurant.name}</b>
+    от <a href="tg://user?id=${user.id}">${user.name}</a>
+    <code>${text}</code>
+    <b>${rating}</b>
+  ask_for_review: >-
+    You can send review for order from ${restaurant.name}. Press
+    ${command_review} to start reviewing.
+  new_message: |-
+    Thank you for your review! 
+    <code>${review}</code>
+lang:
+  title: Language choser
+  welcome_message: 'Choose language:'
+  lang_selected: 'Selected language:'
+start:
+  title: Start messages (not used)
+  cart_is_not_empty: >-
+    Ваша корзина не пуста. Нажмите ${cart_button}, чтобы перейти к корзине или
+    ${start_button}, чтобы перейти к меню.
+index:
+  title: Old start message (not used)
+  welcome_message: Welcome message

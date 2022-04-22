@@ -1,0 +1,287 @@
+keyboard:
+  title: Кнопки нижнего меню
+  ok: Подтвердить ✅
+  back: Назад ↩️
+  checkout: Оформить заказ
+  clear: Очистить корзину
+  cancel: Отмена заказа
+  asap: Как можно быстрее
+  location: Отправить гелокацию
+  no_additions: Нет дополнений
+  telegram: Telegram
+  phone: Телефон
+  whatsapp: WhatsApp
+  thanks: Новый заказ
+  review: Отправить отзыв
+  cart: "Корзина \U0001F6D2"
+  go: "Очистить корзину \U0001F3C3‍♂️"
+  home: "Главное меню \U0001F3E0"
+  rest: "Продолжить заказ \U0001F35F"
+  en: "\U0001F1EC\U0001F1E7 English"
+  ru: "\U0001F1F7\U0001F1FA Русский"
+  ka: "\U0001F1EC\U0001F1EA Грузинский"
+  yes_repeat: 'Да, заказываю туда же'
+  no_again: 'Нет, введу новые данные'
+  orders: Мои заказы
+  chat: Написать ресторану
+  no_minimal: "\U0001F6AB Заказ меньше минимальной стоимости"
+  settings: ⚙️
+  pickup: Самовывоз
+  delivery: Доставка
+meta:
+  title: Системные тексты (при ошибках)
+  help: Help message
+  anymessage: Неизвестная команда. Нажмите /start
+  open_in: |
+
+    <b>До начала работы ресторана осталось ${distance}</b>
+city:
+  welcome_message: 'Выберите город, в котором вы сейчас находитесь'
+chat:
+  title: Chat
+  welcome: >
+    Чтобы начать или продолжить диалог, просто напишите сообщение ниже в
+    диалоговом окне ⬇️
+
+    ${text}
+  message_notification: |-
+    Сообщение от <b>${fromName}</b>:
+    <code>${text}</code>
+    Чтобы ответить нажмите на ссылку: ${chatLink}
+  message_notification_in_chat: |-
+    Сообщение от <b>${fromName}</b>:
+    <code>${text}</code>
+    Чтобы ответить напишите сообщение ниже в диалоговом окне ⬇️
+top:
+  title: Топ блюд
+  welcome_message: Топ-10 самых заказываемых блюд
+  select_one: Выбери одно из блюд
+  button: ❤️ Топ-10 блюд
+cuisine:
+  title: Кухня
+  welcome_message: 'В каждой категории вы найдете лучшие местные рестораны:'
+  select_one: 'Выберите тип кухни:'
+  not_found: 'Кухня не найдена. Выберите одну из предложенных:'
+  open_now: Работают прямо сейчас
+rest:
+  title: Рестораны
+  welcome_message: 'Выберите ресторан:'
+  cart_is_not_empty: >-
+    В вашей корзине уже есть заказ. Нажмите ${cart_button}, чтобы перейти к его
+    оформлению или ${start_button}, чтобы очистить корзину и начать заказ
+    заново.
+  select_one: |-
+    Выбранная кухня: <b>${cuisine.name}</b>
+
+     Выберите ресторан:
+  not_found: 'Такого ресторана нет. Выберите один из предложенных:'
+  open_now: Открыты прямо сейчас
+dish_cat:
+  title: Категории блюд
+  welcome_message: 'Выберите категорию блюд из ресторана, в которой вы хотите сделать заказ'
+  select_one: |-
+    <b>${restaurant.name}</b>
+    ${restaurant.description}
+    Минимальная сумма заказа: <b>${restaurant.minOrderSum} ${currency}</b>
+    Стоимость доставки: от <b>${deliveryCost} ${currency}</b>
+    Время работы: <b>${restaurant.schedule}</b> 
+    ${openIn}
+    Выберите категорию блюда:
+  not_found: 'Такой категории нет. Выберите одну из предложенных:'
+  no_cats: >-
+    К сожалению, в этом ресторане нет ничего подходящего. Попробуйте начать
+    сначала.
+dish:
+  title: Блюда
+  select_one: |-
+    Выбранный ресторан: <b>${restaurant.name}</b> 
+    Минимальная сумма заказа: <b>${restaurant.minOrderSum} ${currency}</b> 
+    Стоимость доставки: от <b>${deliveryCost} ${currency}</b> 
+    Режим работы: <b>${restaurant.schedule}</b> 
+
+    Выбранная категория: ${dishCat.name}
+
+    Выберите блюдо:
+  not_found: 'Такого блюда нет. Выберите одно из предложенных:'
+  no_dishes: >-
+    К сожалению, в этой категории нет представленных блюд. Попробуйте выбрать
+    другую.
+  info: |-
+    Ресторан: <b>${restaurant.name}</b>
+
+    ${dish.name}
+
+    Описание: ${dish.description}
+
+    Цена: ${dish.price}
+  order: 'Добавить в корзину (${count})'
+cart:
+  title: Корзина
+  ready_to_checkout: >-
+    Вы можете добавить еще одно такое же блюдо, для этого просто нажмите на
+    кнопку "В корзину" под ним или выбрать другое блюдо, нажав на ${back_button}
+    в меню. Если вы уже выбрали все что хотели, нажмите ${cart_button} в нижнем
+    меню
+  not_ready_to_checkout: >-
+    Чтобы оформить заказ вам необходимо заказать еще на ${diff} ${currency}. Вы
+    можете добавить еще одно такое же блюдо, для этого просто нажмите на кнопку
+    "Добавить в корзину" под ним или выбрать другое блюдо, нажав на
+    ${back_button} в нижнем меню.
+  welcome_message: 'Отложено в корзину:'
+  dish: >-
+    ${index}. ${dish.name} (${dishCat.name})
+
+    ${dish.price} ${currency} x ${count} = ${total}
+    ${currency} 
+  check: >-
+    <b>${restaurant.name}</b>
+
+
+    <code>${check}</code>
+
+
+    Итого: <b>${sum} ${currency}</b>
+
+    Доставка: <b>${deliveryCost} ${currency}</b>
+
+
+    Нажмите ${button} для подтверждения заказа, а если вы хотите удалить одно из
+    блюд, нажмите ❌
+  review: 'Вернёмся назад, чтобы пересмотреть ваш заказ.'
+  empty: "Ваша корзина пуста. Нажмите кнопку \"Главное меню \U0001F3E0\" в самом низу, чтобы перейти к выбору кухни."
+  remove: '❌ ${dish.name} (${count})'
+  already_has: >-
+    В корзине уже есть отложенный заказ. Продолжите заказывать из этого же
+    ресторана или начните новый заказ, очистив корзину.
+  final_confirmation: >-
+    Нажмите <b>${confirm}</b>, чтобы приступить к оформлению доставки. Нажмите
+    <b>${cancel}</b>, чтобы очистить корзину.
+  cart_sum_alert: Добавьте ещё товаров!
+checkout:
+  title: Оформление заказа
+  pickup: 'Выберите тип доставки:'
+  select_time: 'Укажите время доставки:'
+  send_geo: Отправьте свою геолокацию или напишите адрес
+  send_additional_address: >-
+    Дополнения к адресу (название отеля, номер дома и т.д). Дополнения лучше
+    писать на английском языке, если вы заказываете не из ресторана русской
+    кухни
+  send_name: Как вас зовут?
+  contact_line: 'Укажите, как с вами связаться для подтверждения заказа'
+  contact_info: 'Пожалуйста, напишите ваш телефонный номер '
+  whatsapp_error: >-
+    Пожалуйста, напишите номер вашего WhatsApp в международном формате (11 цифр
+    и + в начале)
+  phone_error: Номер телефона нужно ввести в местном или международном формате
+  repeat_text: 'Использовать данные для доставки, которые были при прошлом заказе?'
+  location_error: Отправьте свою геолокацию или напишите адрес
+  region_error: Выберите район доставки
+  send_region: Выберите район доставки
+final:
+  title: Сообщения после оформления заказа
+  dish: >-
+    ${index}. ${dish.name} / ${dish.name_en} (${dishCat.name} /
+    ${dishCat.name_en})
+
+    ${dish.price} ${currency} x ${count} = ${total}
+    ${currency}
+  empty: Заказ пуст.
+  check: >-
+    Ваш заказ #${orderId} принят и отправлен в обработку! В ближайшее время
+    ресторан свяжется с вами для подтверждения. Вот состав вашей корзины:
+
+
+    <code>${check}</code>
+
+    Доставка: ${deliveryCost} ${currency}
+
+    Итого: <b>${sum} ${currency}</b>
+
+    Спасибо за использование нашего сервиса! Этого бота, а так же все рестораны
+    г. ${cityname} мы обсуждаем в нашей группе ${chat}
+  check_rest: >-
+    ${restaurant.name}
+
+    Заказ #${orderId}. ❗️❗️❗️❗️❗️❗️❗️❗️
+
+    Пожалуйста, свяжитесь с покупателем в течении 10 МИНУТ для подтверждения
+    заказа. 
+
+
+    Состав заказа:
+
+    <code>${check}</code>
+
+    Стоимость доставки:
+
+    ${deliveryCost} ${currency}
+
+
+    Общая сумма к оплате:
+
+    ${sum}
+  user_info: |-
+    Способ доставки: <b>${deliverySetup}</b>
+
+    Имя покупателя: ${user.name}
+    Время доставки: ${user.deliveryTime} 
+    Адрес в гугл координатах: ${user.address} 
+    Дополнения к адресу: ${cityName}, ${regionName}, ${user.additionalAddress} 
+    Способ связи: ${contact}
+    Чтобы начать переписку в боте нажмите эту ссылку: ${chatLink}
+  rest_address: |-
+    Адрес ресторана: ${address}
+    Ссылка на гугл-картах (если есть): ${link}
+  rest_is_closed: >-
+    Мы приносим свои извинения, но ресторан сейчас закрыт. Попробуйте заказать
+    позже.
+review:
+  title: Reviews
+  welcome: >-
+    Пожалуйста, поставьте оценку ресторану ${restaurant.name}. Или нажмите /exit
+    чтобы выйти.
+  welcome_again: >-
+    Для того, чтобы иметь возможность написать отзыв, сначала поставьте оценку
+    ресторану ${restaurant.name}. Или нажмите /exit чтобы выйти.
+  rated: >-
+    Спасибо за вашу оценку! Вы можете написать отзыв ниже ⬇️ или нажать /exit
+    чтобы выйти.
+
+    Отзыв будет опубликован в чате ${chat}
+  review: |-
+    We got new review for restaurant: <b>${restaurant.name}</b>.
+    Rated: <b>${rating}</b>
+    Review text:
+    <code>${text}</code>
+  review_with_user: |-
+    Отзыв о ресторане <b>${restaurant.name}</b>
+    от <a href="tg://user?id=${user.id}">${user.name}</a>
+    <code>${text}</code>
+
+    <b>${rating}</b>
+  ask_for_review: >-
+    You can send review for order from ${restaurant.name}. Press
+    ${command_review} to start reviewing.
+  new_message: >-
+    Спасибо за ваш отзыв! 
+
+
+    <code>${review}</code>
+
+
+    Вы можете увидеть его, а так же прочесть про другие рестораны г.
+    ${cityname}, в нашей группе ${chat}
+settings:
+  welcome_message: 'Выберите настройку, которую вы хотите установить'
+lang:
+  title: Выбор языка
+  welcome_message: 'Выберите язык:'
+  lang_selected: 'Выбран язык:'
+start:
+  title: Стартовая сцена (сейчас не используется)
+  cart_is_not_empty: >-
+    Ваша корзина не пуста. Нажмите ${cart_button}, чтобы перейти к корзине или
+    ${start_button}, чтобы перейти к меню.
+index:
+  title: Сервисные команды (не используются)
+  welcome_message: Welcome message
