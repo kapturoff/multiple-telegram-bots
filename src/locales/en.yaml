@@ -1,3 +1,5 @@
 chat:
   welcome: 'Welcome here! You are watching restaraunts of ${cityName} city!'
-  lang: 'Choose your language / Выберите свой язык.\n\nYou always can switch to another language using commands /rulang and /enlang.\nВы всегда можете изменить язык бота с помощью команды /rulang и /enlang.'
+  lang: 
+    choose: "Choose your language / Выберите свой язык.\n\nYou always can switch to another language using commands /rulang and /enlang.\nВы всегда можете изменить язык бота с помощью команды /rulang и /enlang."
+    changed: 'Switched to English. Send command /start to come back to the menu.'
