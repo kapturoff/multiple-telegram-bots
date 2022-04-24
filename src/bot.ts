@@ -1,6 +1,10 @@
-import { Bot, Context as BaseContext, session, SessionFlavor } from 'grammy'
-import { I18n, I18nContextFlavor } from '@grammyjs/i18n'
+import { Bot, session } from 'grammy'
+import { I18n } from '@grammyjs/i18n'
 import * as path from 'path'
+import { BotContext } from './interfaces'
+import confirmLanguageMiddleware, {
+    switchLang,
+} from './helpers/confirmLanguageMiddleware'
 
 // If there's no bot token in environment variables
 if (!process.env.BOT_TOKEN) {
@@ -8,55 +12,50 @@ if (!process.env.BOT_TOKEN) {
     process.exit(1)
 }
 
-// It's neccessary to specify what's going to be inside session in future
-interface Session {
-    lang: 'ru' | 'en'
-}
-
-// As we will be modifying the base bot context with
-// localization and session middlewares, we need to create a type
-// that will extend methods of the base context.
-type BotContext = BaseContext & I18nContextFlavor & SessionFlavor<Session>
-
 // Create instance of a bot uses our BotContext
 const bot = new Bot<BotContext>(process.env.BOT_TOKEN)
+
+// Registering middlewares
 
 // Allow bot to use sessions
 bot.use(
     session({
-        initial: () => ({ lang: 'en' }), // Set the starting language
+        initial: () => ({ lang: '' }),
     })
 )
 
 // Configure localization
 const i18n = new I18n({
-    defaultLanguageOnMissing: true, // If something missing in chosen lang, switch to main language
+    defaultLanguageOnMissing: true, // If something missing in chosen lang, take it from main language
     directory: path.resolve(__dirname, 'locales'), // Directory where locales stored
     useSession: true, // Allow to use session to remember users' langs
+    defaultLanguage: 'en',
 })
 
-// After adding it as a middleware, localization becomes available
-// through ctx.i18n. ctx.i18n.t() can pick a value from locales and
-// template it with given to this function data.
+/**
+ * After adding it as a middleware, localization becomes available
+ * through ctx.i18n. ctx.i18n.t() can pick a value from locales and
+ * template it with given to this function data.
+ */
 bot.use(i18n.middleware())
 
-// Set up the text handlers
-bot.command('start', async (ctx) => {
-    // Use the lang that user chose in the template
-    ctx.i18n.locale(ctx.session.lang)
+// Add a middleware that asks user to choose his language everytime it's not set
+bot.use(confirmLanguageMiddleware)
 
-    // Send templated reply
-    ctx.reply(ctx.i18n.t('chat.welcome', { text: 'Hey!' }))
+// Commands
+
+bot.command('start', async (ctx) => {
+    await ctx.reply(ctx.i18n.t('chat.welcome', { cityName: 'Krasnodar' }))
 })
 
 // Switching to Russian
 bot.command('rulang', async (ctx) => {
-    ctx.session.lang = 'ru'
+    await switchLang(ctx, 'ru')
 })
 
 // Switching to English
 bot.command('enlang', async (ctx) => {
-    ctx.session.lang = 'en'
+    await switchLang(ctx, 'en')
 })
 
 // Export bot to run it in index.ts
