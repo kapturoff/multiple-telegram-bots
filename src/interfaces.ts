@@ -1,7 +1,4 @@
-import {
-    Context as BaseContext,
-    SessionFlavor,
-} from 'grammy'
+import { Context as BaseContext, SessionFlavor } from 'grammy'
 import { I18nContextFlavor } from '@grammyjs/i18n'
 
 export type Lang = 'ru' | 'en'
@@ -14,4 +11,62 @@ export interface Session {
 // As we will be modifying the base bot context with
 // localization and session middlewares, we need to create a type
 // that will extend methods of the base context.
-export type BotContext = BaseContext & I18nContextFlavor & SessionFlavor<Session>
+export type BotContext = BaseContext &
+    I18nContextFlavor &
+    SessionFlavor<Session>
+
+// We need it for establishing database schema
+export interface Bot {
+    /**
+     * Needed to help bot identify itself.
+     */
+    botToken: string
+
+    /**
+     * Every bot is linked to one city, so it needed to 
+     * be storing its city ID. 
+     */
+    cityID: number
+    
+    /**
+     * Endpoint is needed to be stored to help server
+     * to choose which bot is responsible for serving
+     * the request.
+     * 
+     * Example of endpoint:
+     * 
+     * http://example.com/botAbCdEfGhIjK01234567890, 
+     * 
+     * where `botAbCdEfGhIjK01234567890` is an endpoint.
+     * 
+     * **Very important to not use bot token here, since it
+     * can be leaked from logs.**
+     */
+    endpoint: string
+}
+
+export interface City {
+    id: number
+    name: string
+}
+
+/**
+ * Restaraunt model. 
+ * 
+ * _I will not go further (add categories of food, 
+ * dishes, etc...), since the project is just a PoC._
+ */
+export interface Restaraunt {
+    id: number
+    name: string
+    /**
+     * Needed to identify what restaraunt to what city belongs in SQL-style.
+     */
+    cityID: number
+}
+
+export type DatabaseSchema = {
+    bots: Bot[]
+    cities: City[]
+    restaraunts: Restaraunt[]
+}
