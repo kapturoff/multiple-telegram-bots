@@ -24,6 +24,6 @@
     "dotenv": "^16.0.0",
     "fastify": "^3.28.0",
     "grammy": "^1.8.0",
-    "lowdb": "^3.0.0"
+    "lowdb": "github:dankreiger/lowdb#chore/esm-cjs-hybrid-WITH-LIB"
   }
 }
