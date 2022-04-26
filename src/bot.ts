@@ -11,7 +11,7 @@ import { DatabaseSchema } from './interfaces'
 // Configure localization
 const i18n = new I18n({
     defaultLanguageOnMissing: true, // If something missing in chosen lang, take it from main language
-    directory: path.resolve(__dirname, 'locales'), // Directory where locales stored
+    directory: 'locales', // Directory where locales stored
     useSession: true, // Allow to use session to remember users' langs
     defaultLanguage: 'en',
 })
