@@ -11,7 +11,7 @@ const { LOG_API, WEBHOOK_URL } = process.env
 
 // Importing all neccessary code
 import Fastify from 'fastify'
-import { webhookCallback, Bot } from 'grammy'
+import { webhookCallback } from 'grammy'
 import buildBot from './bot'
 import * as i from './interfaces'
 import { Low, JSONFile } from 'lowdb'
@@ -70,7 +70,7 @@ app.listen(process.env.PORT, async (err, address) => {
     const { bots } = db.data
 
     for (const botData of bots) {
-        const bot = buildBot(botData.botToken) // Initilize new bot
+        const bot = buildBot(botData.botToken, botData.cityID, db) // Initilize new bot
 
         /**
          * Add a just initilized bot to an array of running bots, so it

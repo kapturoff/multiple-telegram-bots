@@ -10,6 +10,7 @@ export type Lang = 'ru' | 'en'
 // It's neccessary to specify what's going to be inside session in future
 export interface Session {
     lang: 'ru' | 'en' | ''
+    cityID: number
 }
 
 // As we will be modifying the base bot context with

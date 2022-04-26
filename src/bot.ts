@@ -5,6 +5,8 @@ import { BotContext } from './interfaces'
 import confirmLanguageMiddleware, {
     switchLang,
 } from './helpers/confirmLanguageMiddleware'
+import { Low } from 'lowdb'
+import { DatabaseSchema } from './interfaces'
 
 // Configure localization
 const i18n = new I18n({
@@ -15,7 +17,9 @@ const i18n = new I18n({
 })
 
 export default function buildBot(
-    botToken: string
+    botToken: string,
+    cityID: number,
+    db: Low<DatabaseSchema>
 ): Bot<BotContext, Api<RawApi>> {
     // Create instance of a bot uses our BotContext
     const bot = new Bot<BotContext>(botToken)
@@ -42,7 +46,11 @@ export default function buildBot(
     // Commands
 
     bot.command('start', async (ctx) => {
-        await ctx.reply(ctx.i18n.t('chat.welcome', { cityName: 'Krasnodar' }))
+        await ctx.reply(
+            ctx.i18n.t('chat.welcome', {
+                cityName: db.data.cities.find((city) => city.id == cityID).name,
+            })
+        )
     })
 
     // Switching to Russian
