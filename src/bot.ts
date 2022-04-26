@@ -6,6 +6,14 @@ import confirmLanguageMiddleware, {
     switchLang,
 } from './helpers/confirmLanguageMiddleware'
 
+// Configure localization
+const i18n = new I18n({
+    defaultLanguageOnMissing: true, // If something missing in chosen lang, take it from main language
+    directory: path.resolve(__dirname, 'locales'), // Directory where locales stored
+    useSession: true, // Allow to use session to remember users' langs
+    defaultLanguage: 'en',
+})
+
 export default function buildBot(
     botToken: string
 ): Bot<BotContext, Api<RawApi>> {
@@ -20,14 +28,6 @@ export default function buildBot(
             initial: () => ({ lang: '' }),
         })
     )
-
-    // Configure localization
-    const i18n = new I18n({
-        defaultLanguageOnMissing: true, // If something missing in chosen lang, take it from main language
-        directory: path.resolve(__dirname, 'locales'), // Directory where locales stored
-        useSession: true, // Allow to use session to remember users' langs
-        defaultLanguage: 'en',
-    })
 
     /**
      * After adding it as a middleware, localization becomes available
