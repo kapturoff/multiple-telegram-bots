@@ -28,12 +28,12 @@ async function fillDB() {
 
     db.data.cities.push({
         id: 1,
-        name: 'Krasnodar',
+        name: 'Краснодар',
     })
 
     db.data.cities.push({
         id: 2,
-        name: 'Moscow',
+        name: 'London',
     })
 
     // Adding bots
