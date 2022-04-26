@@ -1,4 +1,8 @@
-import { Context as BaseContext, SessionFlavor } from 'grammy'
+import {
+    Context as BaseContext,
+    SessionFlavor,
+    Bot as BotInstance,
+} from 'grammy'
 import { I18nContextFlavor } from '@grammyjs/i18n'
 
 export type Lang = 'ru' | 'en'
@@ -23,22 +27,22 @@ export interface Bot {
     botToken: string
 
     /**
-     * Every bot is linked to one city, so it needed to 
-     * be storing its city ID. 
+     * Every bot is linked to one city, so it needed to
+     * be storing its city ID.
      */
     cityID: number
-    
+
     /**
      * Endpoint is needed to be stored to help server
      * to choose which bot is responsible for serving
      * the request.
-     * 
+     *
      * Example of endpoint:
-     * 
-     * http://example.com/botAbCdEfGhIjK01234567890, 
-     * 
+     *
+     * http://example.com/botAbCdEfGhIjK01234567890,
+     *
      * where `botAbCdEfGhIjK01234567890` is an endpoint.
-     * 
+     *
      * **Very important to not use bot token here, since it
      * can be leaked from logs.**
      */
@@ -51,9 +55,9 @@ export interface City {
 }
 
 /**
- * Restaraunt model. 
- * 
- * _I will not go further (add categories of food, 
+ * Restaraunt model.
+ *
+ * _I will not go further (add categories of food,
  * dishes, etc...), since the project is just a PoC._
  */
 export interface Restaraunt {
@@ -70,3 +74,21 @@ export type DatabaseSchema = {
     cities: City[]
     restaraunts: Restaraunt[]
 }
+
+/**
+ * It must be saved separately to stay flexible with the bots architecture
+ * in the future.
+ *
+ * For example, when we would be needed to disable bot for a while, we will
+ * be able to just remove instance of a certain bot from the array of the
+ * running bots to make it stop to handle requests.
+ */
+export type BotMixed = {
+    botInstance: BotInstance
+    botData: Bot
+}
+
+/**
+ * Needed to set up Fastify router
+ */
+export type Params = { endpoint?: string }
