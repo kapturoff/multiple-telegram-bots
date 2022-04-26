@@ -1,7 +1,3 @@
-// 1. Add an array into server where the bot instances going to be stored
-// 2. Endpoint template /bot<endpoint> for handling bot requests
-// 3. Add and delete bot from an array
-
 // Loading .env file and put its values to process.env
 import { config } from 'dotenv'
 config()
