@@ -7,31 +7,27 @@ import { I18nContextFlavor } from '@grammyjs/i18n'
 
 export type Lang = 'ru' | 'en'
 
-// It's neccessary to specify what's going to be inside session in future
-export interface Session {
-    lang: 'ru' | 'en' | ''
-    cityID: number
-}
-
-// As we will be modifying the base bot context with
-// localization and session middlewares, we need to create a type
-// that will extend methods of the base context.
-export type BotContext = BaseContext &
-    I18nContextFlavor &
-    SessionFlavor<Session>
-
+/**
+ * As we will be modifying the base bot context with
+ * localization and session middlewares, we need to create a type
+ * that will extend methods of the base context.
+ */
+export type BotContext = BaseContext
 // We need it for establishing database schema
-export interface Bot {
+
+export interface IBot {
     /**
      * Needed to help bot identify itself.
      */
+
     botToken: string
 
     /**
      * Every bot is linked to one city, so it needed to
      * be storing its city ID.
      */
-    cityID: number
+
+    cityId: number
 
     /**
      * Endpoint is needed to be stored to help server
@@ -47,33 +43,8 @@ export interface Bot {
      * **Very important to not use bot token here, since it
      * can be leaked from logs.**
      */
+
     endpoint: string
-}
-
-export interface City {
-    id: number
-    name: string
-}
-
-/**
- * Restaraunt model.
- *
- * _I will not go further (add categories of food,
- * dishes, etc...), since the project is just a PoC._
- */
-export interface Restaraunt {
-    id: number
-    name: string
-    /**
-     * Needed to identify what restaraunt to what city belongs in SQL-style.
-     */
-    cityID: number
-}
-
-export type DatabaseSchema = {
-    bots: Bot[]
-    cities: City[]
-    restaraunts: Restaraunt[]
 }
 
 /**
@@ -84,12 +55,8 @@ export type DatabaseSchema = {
  * be able to just remove instance of a certain bot from the array of the
  * running bots to make it stop to handle requests.
  */
-export type BotMixed = {
-    botInstance: BotInstance
-    botData: Bot
+export type BotContainer = {
+    instance: BotInstance
+    initialData: IBot
+    webhooksActivated?: boolean
 }
-
-/**
- * Needed to set up Fastify router
- */
-export type Params = { endpoint?: string }

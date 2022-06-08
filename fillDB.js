@@ -40,13 +40,13 @@ async function fillDB() {
 
     db.data.bots.push({
         botToken: BOT_TOKEN_1,
-        cityID: 1,
+        cityId: 1,
         endpoint: 'bot1',
     })
 
     db.data.bots.push({
         botToken: BOT_TOKEN_2,
-        cityID: 2,
+        cityId: 2,
         endpoint: 'bot2',
     })
 
@@ -55,25 +55,25 @@ async function fillDB() {
     db.data.restaraunts.push({
         id: 1,
         name: 'Краснодарский парень',
-        cityID: 1,
+        cityId: 1,
     })
 
     db.data.restaraunts.push({
         id: 2,
         name: 'KFC',
-        cityID: 1,
+        cityId: 1,
     })
 
     db.data.restaraunts.push({
         id: 3,
         name: 'McDonalds',
-        cityID: 2,
+        cityId: 2,
     })
 
     db.data.restaraunts.push({
         id: 4,
         name: 'Пироговая',
-        cityID: 2,
+        cityId: 2,
     })
 
     // Writing everything into database
